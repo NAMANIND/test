@@ -101,8 +101,6 @@ const Footer = () => {
     <div>
       <div>
         <div id="Knowmore"></div>
-        <Scroller />
-        <Callendy />
         <div className="p-10 w-full">
           <div className="flex items-center justify-center gap-4 my-4">
             <a
