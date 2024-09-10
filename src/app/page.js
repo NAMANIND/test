@@ -61,7 +61,7 @@ const HomePage = () => {
                 textWrap: "balance",
               }}
             >
-              Transformo Docs: Seamlessly converting files into machine-readable formats with an MVP that detects non-machine-readable files.
+              Transformo Docs: Seamlessly detecting Non machine readable files and converting files into machine-readable formats. 
             </span>
 
             <div className="flex w-full items-center justify-center space-x-4 py-4 md:pb-10">

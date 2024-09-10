@@ -22,6 +22,7 @@ const MachineReadableFormats = {
   Protobuf: 'application/x-protobuf',
   MessagePack: 'application/x-msgpack',
   BSON: 'application/bson'
+
 };
 
 const NonMachineReadableFileFormats = {
@@ -40,7 +41,14 @@ const NonMachineReadableFileFormats = {
   ODC: 'application/vnd.oasis.opendocument.chart',
   ODI: 'application/vnd.oasis.opendocument.image',
   ODM: 'application/vnd.oasis.opendocument.text-master',
-  IMG: 'image/*'
+  IMG: 'image/*',
+  JPEG: 'image/jpeg',
+  PNG: 'image/png',
+  GIF: 'image/gif',
+  BMP: 'image/bmp',
+  TIFF: 'image/tiff',
+  SVG: 'image/svg+xml',
+  WEBP: 'image/webp'
 };
 
 const getFileCategory = (mimeType) => {
