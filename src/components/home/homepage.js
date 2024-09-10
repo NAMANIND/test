@@ -88,8 +88,8 @@ export default function EnhancedFileUpload() {
   return (
     // <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-500 to-purple-600 p-4">
     <div className="flex flex-col items-center justify-center  min-h-screen  p-4">
-      <div className="w-full max-w-md p-6 bg-blue-400  rounded-lg shadow-xl">
-        <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">File Analyzer</h1>
+      <div className="w-full max-w-md p-6 bg-gray-900   rounded-lg shadow-xl">
+        <h1 className="text-3xl font-bold mb-6 text-white text-center">File Analyzer</h1>
         
         {!file && (
           <label className="flex flex-col items-center px-4 py-6 bg-blue-50 text-blue-500 rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue-100 transition duration-300">
@@ -102,14 +102,14 @@ export default function EnhancedFileUpload() {
         {file && (
           <div className="mt-4 space-y-4">
             <div className="flex items-center justify-between">
-              <FileText className="w-8 h-8 text-blue-500" />
-              <span className="font-semibold text-lg text-gray-700 flex-grow ml-2">{file.name}</span>
-              <button onClick={resetUpload} className="p-1 rounded-full hover:bg-gray-200 transition duration-300">
-                <X className="w-5 h-5 text-gray-500" />
+              <FileText className="w-8 h-8  text-white" />
+              <span className="font-semibold text-lg text-white flex-grow ml-2">{file.name}</span>
+              <button onClick={resetUpload} className="p-1 rounded-full  hover:bg-gray-400 transition duration-300">
+                <X className="w-5 h-5 text-white" />
               </button>
             </div>
             
-            <Progress value={uploadProgress} className="w-full" />
+            <Progress value={uploadProgress} className="w-full bg-gray-600 " />
             
             <div className="bg-gray-100 p-4 rounded-lg">
               <p className="text-sm text-gray-600">
