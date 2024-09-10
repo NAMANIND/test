@@ -92,9 +92,9 @@ export default function EnhancedFileUpload() {
         <h1 className="text-3xl font-bold mb-6 text-white text-center">File Analyzer</h1>
         
         {!file && (
-          <label className="flex flex-col items-center px-4 py-6 bg-blue-50 text-blue-500 rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue-100 transition duration-300">
+          <label className="flex flex-col items-center px-4 py-6 bg-blue-50 text-gray-900 rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue-100 transition duration-300">
             <Upload className="w-8 h-8" />
-            <span className="mt-2 text-base leading-normal">Select a file</span>
+            <span className="mt-2 text-base text-gray-900 leading-normal">Select a file</span>
             <input type='file' className="hidden" onChange={handleFileUpload} />
           </label>
         )}
