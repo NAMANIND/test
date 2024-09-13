@@ -1,5 +1,5 @@
 import React from "react";
-import { Ship } from "lucide-react";
+import AutoTranslate from "@/components/home/translate";
 
 function Navbar() {
   return (
@@ -13,11 +13,13 @@ function Navbar() {
           </a>
         </div>
         <div className="navbar-actions-wrapper flex flex-row items-center gap-6">
+        <AutoTranslate />
           <a href="#">
+          
             <small className="small-text text-sm font-medium leading-none "></small>
           </a>
 
-
+{/* 
           <a target="" href="/idea">
             <button className="whitespace-nowrap flex flex-row items-center justify-center gap-2 rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-gradient-to-b from-neutral-600 to-neutral-900 text-white shadow-md hover:brightness-105 hover:shadow-lg transition-all duration-200 ease-in-out h-10 px-4 py-2">
               Idea behind Transformo doc
@@ -36,6 +38,7 @@ function Navbar() {
               </svg>
             </button>
           </a>
+           */}
         </div>
       </div>
     </nav>
