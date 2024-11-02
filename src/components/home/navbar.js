@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import AutoTranslate from "@/components/home/translate";
+import Language from "../language/Language";
 
 function Navbar() {
   const [userLocation, setUserLocation] = useState(null);
@@ -45,7 +46,9 @@ function Navbar() {
           },
           "google_translate_element"
         );
-        const selectElement = document.querySelector("#google_translate_element select");
+        const selectElement = document.querySelector(
+          "#google_translate_element select"
+        );
         selectElement.selectedIndex = 1; // Set default language
         selectElement.dispatchEvent(new Event("change"));
       };
@@ -101,19 +104,7 @@ function Navbar() {
       </div>
 
       {/* Small Popup Component */}
-      {showPopup && (
-        <div className="fixed top-4 right-4 bg-gray-800 text-white px-4 py-2 rounded-lg shadow-lg z-50">
-          <div className="flex justify-between items-center">
-            <p className="text-sm">Change Language? Select from the top.</p>
-            <button
-              onClick={closePopup}
-              className="text-white ml-4 font-bold text-xs"
-            >
-              ✕
-            </button>
-          </div>
-        </div>
-      )}
+      {showPopup && <Language />}
     </nav>
   );
 }
