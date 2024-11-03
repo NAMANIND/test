@@ -7,6 +7,8 @@ import "pathseg";
 Matter.Common.setDecomp(decomp);
 
 import { Ground } from "./ok";
+import Navbar from "../home/navbar";
+import Homesection from "../home/Homesection";
 
 const Hero3D = () => {
   const sceneRef = useRef(null);
@@ -34,7 +36,7 @@ const Hero3D = () => {
         width: window.innerWidth,
         height: window.innerHeight,
         wireframes: false,
-        background: "#ffffff",
+        background: "transparent",
       },
     });
 
@@ -47,37 +49,37 @@ const Hero3D = () => {
     const shipY = window.innerHeight - shipHeight / 2;
 
     // Ship hull (bottom part)
-    const shipHull = Bodies.trapezoid(
-      window.innerWidth / 2,
-      shipY + shipHeight / 4,
-      shipWidth * 1.05,
-      shipHeight / 2,
-      0.1,
-      {
-        isStatic: true,
-        render: { fillStyle: "#1B53C2" },
-        collisionFilter: {
-          group: -1,
-        },
-        chamfer: { radius: [0, 0, 0, 0] },
-      }
-    );
+    // const shipHull = Bodies.trapezoid(
+    //   window.innerWidth / 2,
+    //   shipY + shipHeight / 4,
+    //   shipWidth * 1.05,
+    //   shipHeight / 2,
+    //   0.1,
+    //   {
+    //     isStatic: true,
+    //     render: { fillStyle: "#1B53C2" },
+    //     collisionFilter: {
+    //       group: -1,
+    //     },
+    //     chamfer: { radius: [0, 0, 0, 0] },
+    //   }
+    // );
 
     // Ship deck
-    const shipDeck = Bodies.rectangle(
-      window.innerWidth / 2,
-      shipY - shipHeight / 8,
-      shipWidth * 1.05,
-      shipHeight / 4,
-      {
-        isStatic: true,
-        render: { fillStyle: "#3498DB" },
-        collisionFilter: {
-          group: -1,
-        },
-        chamfer: { radius: [10, 10, 10, 10] },
-      }
-    );
+    // const shipDeck = Bodies.rectangle(
+    //   window.innerWidth / 2,
+    //   shipY - shipHeight / 8,
+    //   shipWidth * 1.05,
+    //   shipHeight / 4,
+    //   {
+    //     isStatic: true,
+    //     render: { fillStyle: "#3498DB" },
+    //     collisionFilter: {
+    //       group: -1,
+    //     },
+    //     chamfer: { radius: [10, 10, 10, 10] },
+    //   }
+    // );
 
     const getPathElement = (d) => {
       const path = document.createElementNS(
@@ -90,14 +92,14 @@ const Hero3D = () => {
 
     // Create ground using the Ground component's path
     const ground = Matter.Bodies.fromVertices(
-      window.innerWidth * 0.625,
-      shipY - shipHeight / 2,
+      window.innerWidth * 0.625 + 30,
+      shipY - shipHeight / 2 + 30,
       Matter.Vertices.scale(
         Matter.Svg.pathToVertices(getPathElement(Ground.path), 30),
         3,
         3
       ),
-      { isStatic: true, render: { fillStyle: "#000" } },
+      { isStatic: true, render: { fillStyle: "trasparent" } },
       true
     );
     ground.width = Ground.size.width;
@@ -128,59 +130,58 @@ const Hero3D = () => {
       transformRef(groundRef.current, ground);
     });
 
-    // Ship bridge
-    const bridgeWidth = shipWidth * 0.2;
-    const bridgeHeight = shipHeight * 0.8;
-    const shipBridge = Bodies.rectangle(
-      window.innerWidth / 2 + shipWidth * 0.3,
-      shipY - shipHeight / 4 - bridgeHeight / 2,
-      bridgeWidth,
-      bridgeHeight,
-      {
-        isStatic: true,
-        render: { fillStyle: "#ADD8E6" },
-        collisionFilter: {
-          group: -1,
-        },
-      }
-    );
+    // // Ship bridge
+    // const bridgeWidth = shipWidth * 0.2;
+    // const bridgeHeight = shipHeight * 0.8;
+    // const shipBridge = Bodies.rectangle(
+    //   window.innerWidth / 2 + shipWidth * 0.3,
+    //   shipY - shipHeight / 4 - bridgeHeight / 2,
+    //   bridgeWidth,
+    //   bridgeHeight,
+    //   {
+    //     isStatic: true,
+    //     render: { fillStyle: "#ADD8E6" },
+    //     collisionFilter: {
+    //       group: -1,
+    //     },
+    //   }
+    // );
 
-    // Small bridge on the right
-    const smallBridgeWidth = shipWidth * 0.1;
-    const smallBridgeHeight = shipHeight * 0.4;
-    const smallBridge = Bodies.rectangle(
-      window.innerWidth / 2 + shipWidth * 0.3,
-      shipY - shipHeight / 4 - bridgeHeight - smallBridgeHeight / 2,
-      smallBridgeWidth,
-      smallBridgeHeight,
-      {
-        isStatic: true,
-        render: { fillStyle: "#1B53C2" },
-        collisionFilter: {
-          group: -1,
-        },
-      }
-    );
+    // // Small bridge on the right
+    // const smallBridgeWidth = shipWidth * 0.1;
+    // const smallBridgeHeight = shipHeight * 0.4;
+    // const smallBridge = Bodies.rectangle(
+    //   window.innerWidth / 2 + shipWidth * 0.3,
+    //   shipY - shipHeight / 4 - bridgeHeight - smallBridgeHeight / 2,
+    //   smallBridgeWidth,
+    //   smallBridgeHeight,
+    //   {
+    //     isStatic: true,
+    //     render: { fillStyle: "#1B53C2" },
+    //     collisionFilter: {
+    //       group: -1,
+    //     },
+    //   }
+    // );
 
     // Function to create a container
     const createContainer = () => {
-      const colors = [
-        "#E74C3C", // Red
-        "#F1C40F", // Yellow
-        "#3498DB", // Blue
-        "#F39C12", // Orange
-        "#2ECC71", // Green
-      ];
+      const images = ["/red.png", "/white.png", "/blue.png", "/yellow.png"];
+      const bodyWidth = shipWidth * 0.1;
+      const bodyHeight = shipWidth * 0.05;
+
       return Bodies.rectangle(
         Math.random() * window.innerWidth,
         Math.random() * -500 - 10,
-        shipWidth * 0.1,
-        shipWidth * 0.05,
+        bodyWidth,
+        bodyHeight,
         {
           render: {
-            fillStyle: colors[Math.floor(Math.random() * colors.length)],
-            strokeStyle: "#000",
-            lineWidth: 1,
+            sprite: {
+              texture: images[Math.floor(Math.random() * images.length)],
+              xScale: 1.7, // Adjust to the actual width of your image
+              yScale: 1.7, // Adjust to the actual height of your image
+            },
           },
           density: 0.0001,
         }
@@ -227,6 +228,11 @@ const Hero3D = () => {
 
       if (visibleContainers.length < minContainers) {
         const newContainer = createContainer();
+        // Ensure the container is dropped in the middle part of the screen
+        Matter.Body.setPosition(newContainer, {
+          x: window.innerWidth / 2 + (Math.random() - 0.5) * shipWidth * 0.8,
+          y: Math.random() * -500 - 10,
+        });
         Composite.add(engine.world, newContainer);
       }
     };
@@ -260,16 +266,36 @@ const Hero3D = () => {
       <div
         ref={sceneRef}
         style={{ width: "100vw", height: "100vh", position: "relative" }}
-        className="z-10"
+        className="z-10 bg-sky-300/60"
       ></div>{" "}
       <svg
         width={440}
         height={117}
-        className=" absolute top-0 z-40 block box-border "
+        className=" absolute top-0 z-10 block box-border"
         ref={groundRef}
+        style={{ pointerEvents: "none" }}
       >
         <Ground />
       </svg>
+      <nav
+        className="w-screen flex items-center justify-center align-middle px-8 py-4 fixed top-0 z-20"
+        style={{ pointerEvents: "none" }}
+      >
+        <Navbar />
+      </nav>
+      <div
+        className="w-screen flex items-center justify-center bg-sky-600 align-middle px-8 py-4 h-16 absolute bottom-0 z-9"
+        style={{ pointerEvents: "none" }}
+      ></div>
+      <div className="w-full overflow-hidden absolute bottom-0 h-12  z-20">
+        <img src="/wave.svg" alt="wave" className="w-full object-contain " />
+      </div>
+      <div
+        className="w-screen flex items-center justify-center align-middle px-8 py-4 fixed top-0 z-20"
+        style={{ pointerEvents: "none" }}
+      >
+        <Homesection />
+      </div>
     </>
   );
 };
