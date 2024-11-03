@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useRef, useState } from "react";
 import Matter from "matter-js";
 import decomp from "poly-decomp";
