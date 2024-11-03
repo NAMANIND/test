@@ -94,3 +94,19 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.animate-up {
+  animation: up 3s ease-out infinite;
+}
+
+@keyframes up {
+  0% {
+    transform: translateY(4px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(4px);
+  }
+}

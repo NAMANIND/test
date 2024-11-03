@@ -288,7 +288,11 @@ const Hero3D = () => {
         style={{ pointerEvents: "none" }}
       ></div>
       <div className="w-full overflow-hidden absolute bottom-0 h-12  z-20">
-        <img src="/wave.svg" alt="wave" className="w-full object-contain " />
+        <img
+          src="/wave.svg"
+          alt="wave"
+          className="w-full object-contain animate-up  "
+        />
       </div>
       <div
         className="w-screen flex items-center justify-center align-middle px-8 py-4 fixed top-0 z-20"
