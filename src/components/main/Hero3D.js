@@ -48,6 +48,10 @@ const Hero3D = () => {
     const shipHeight = window.innerHeight * 0.3;
     const shipY = window.innerHeight - shipHeight / 2;
 
+    if (shipWidth) {
+      setLoading(false);
+    }
+
     // Ship hull (bottom part)
     // const shipHull = Bodies.trapezoid(
     //   window.innerWidth / 2,
@@ -217,7 +221,7 @@ const Hero3D = () => {
     render.mouse = mouse;
 
     // adjust gravity
-    engine.world.gravity.y = 1;
+    engine.world.gravity.y = 2;
 
     // Function to check and add containers
     const minContainers = 15;
@@ -261,12 +265,22 @@ const Hero3D = () => {
     };
   }, []); // Only run once when component mounts
 
+  // loadingscreen
+  const [loading, setLoading] = useState(true);
+
   return (
     <>
+      {loading && (
+        <div className="flex fixed z-50 items-center justify-center h-screen w-screen bg-sky-200">
+          <div className="text-center text-xl font-bold !text-[#324A5E] leading-tight tracking-tighter md:text-2xl lg:leading-[1.1]">
+            shipper is getting ready....
+          </div>
+        </div>
+      )}
       <div
         ref={sceneRef}
         style={{ width: "100vw", height: "100vh", position: "relative" }}
-        className="z-10 bg-sky-300/60"
+        className="z-10 bg-sky-200/60"
       ></div>{" "}
       <svg
         width={440}

@@ -12,9 +12,9 @@ function Homesection() {
   return (
     <div className="w-full dotted-background relative flex flex-col items-center justify-center">
       <div className="flex items-center justify-center max-md:hidden">
-        <section className="py-24 max-md:py-12">
+        <section className="py-16 max-md:py-12">
           <section className="mx-auto flex justify-center max-w-[980px]  flex-col items-center gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-20">
-            <a className="bg-slate-50 inline-flex items-center rounded-lg bg-muted px-3 py-1 text-sm font-sans">
+            {/* <a className="bg-slate-50 inline-flex items-center rounded-lg bg-muted px-3 py-1 text-sm font-sans">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-4 h-4"
@@ -34,7 +34,7 @@ function Homesection() {
               <span className="mx-3 text-[#324A5E]">
                 Temporily out of service
               </span>
-            </a>
+            </a> */}
 
             <h1 className="text-center text-xl font-bold !text-[#324A5E] leading-tight tracking-tighter md:text-5xl lg:leading-[1.1]">
               building images effortlessly.
